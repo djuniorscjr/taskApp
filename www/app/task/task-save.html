@@ -1,0 +1,16 @@
+<ion-view title="{{vm.editTask ? 'Edit': 'Save'}} Task">
+    <ion-content class="padding" scroll="false">
+         <div class="list">
+             <label class="item item-input item-floating-label">
+                <span class="input-label">Description </span>
+                <input type="text" placeholder="Description" ng-model="vm.task.description"/>
+             </label>
+             <ion-checkbox ng-model="vm.task.finished">Finished</ion-checkbox>
+             <button class="button button-block button-positive" 
+                 ng-click="vm.editTask ? vm.edit(vm.task) : vm.save(vm.task)" 
+                 ng-disabled="!vm.task.description">
+                 {{vm.editTask ? 'Edit': 'Save'}} Task
+             </button>
+         </div>
+    </ion-content>
+</ion-view>

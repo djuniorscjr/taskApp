@@ -1,0 +1,43 @@
+<ion-view title='All Tasks'>
+    <ion-nav-buttons side="right">
+        <a nav-transition="none" href="#/task-save">
+          <button class="icon-header button button-clear ion-plus-circled">
+          </button>
+        </a>  
+    </ion-nav-buttons>
+    <ion-content>
+        <ion-list>
+            <ion-item collection-repeat="task in vm.tasks | 
+                      filter: {finished : vm.showTaskStatusOff}">
+                <div class="row">
+                    <div class="col col-90">
+                        {{task.description}} - {{task.finished}}
+                    </div>
+                    <div class="col col-10">
+                        <button class="button button-small 
+                            button-positive button-outline" ng-click="vm.showOptions(task)">
+                            <i class="icon ion-wrench"></i>
+                        </button>
+                    </div>
+                </div>
+
+            </ion-item>
+        </ion-list>   
+    </ion-content> 
+    <ion-footer-bar class="bar-positive">
+        <div class="col col-80">
+             <strong>Show finalized tasks?</strong> 
+        </div>
+        <div class="col col-20">
+            <label class="toggle">
+                <input type="checkbox" ng-model="vm.showTaskStatusOff" />
+                <div class="track">
+                    <div class="handle">
+                        
+                    </div>
+                </div>
+            </label>
+        </div>
+    </ion-footer-bar>
+   
+</ion-view>
